@@ -9,4 +9,4 @@ clientSocket.sendto(message.encode(), (serverName, serverPort))
 modifiedMessage, serverAddress = clientSocket.recvfrom(1024)
 print("Upper case message: ", modifiedMessage.decode())
 
-clientSocket.close()
+clientSocket.close() 
