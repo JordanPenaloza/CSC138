@@ -15,3 +15,4 @@ while True:
         continue
     else:
         serverSocket.sendto(message.encode(), address)
+        print("Encoded and sent message")

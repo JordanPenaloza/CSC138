@@ -18,7 +18,7 @@ for ping in range(num_pings):
         print(f"Received from {server_address}: {response.decode().upper()}")
 
     except:
-        print("Timed out")
+        print("Request timed out")
     ping_attempt += 1
 
 
