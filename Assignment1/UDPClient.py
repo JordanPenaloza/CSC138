@@ -8,12 +8,13 @@ client_socket.settimeout(1)
 ping_message = "Ping"
 num_pings = 10
 ping_attempt = 1
-rtt = 0
 
 def calculateRTT(end_time, start_time):
     return (end_time - start_time) * 1000
 
 for ping in range(num_pings):
+
+    time.sleep(1)
 
     start_time = time.time()
 
@@ -32,10 +33,5 @@ for ping in range(num_pings):
     except:
         print("Request timed out")
     ping_attempt += 1
-
-
-
-
-
 
 client_socket.close()
