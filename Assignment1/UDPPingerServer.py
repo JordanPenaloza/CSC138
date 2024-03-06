@@ -1,8 +1,11 @@
 from socket import *
 import random
 
+#simulates artificial packet loss if rand is less than 4
+#capitalizes messages received from the client and sends them back
+
 serverSocket = socket(AF_INET, SOCK_DGRAM)
-serverSocket.bind('',12000)
+serverSocket.bind(('',12000))
 
 while True:
     rand = random.randint(0,10)
@@ -12,4 +15,3 @@ while True:
         continue
     else:
         serverSocket.sendto(message, address)
-        
