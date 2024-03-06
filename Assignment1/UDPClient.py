@@ -27,7 +27,7 @@ for ping in range(num_pings):
         rtt = calculateRTT(end_time, start_time)
         print(f"RTT: {rtt}")
 
-    except:
+    except timeout:
         print("Request timed out")
     ping_attempt += 1
 
