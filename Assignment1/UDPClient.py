@@ -14,8 +14,6 @@ def calculateRTT(end_time, start_time):
 
 for ping in range(num_pings):
 
-    time.sleep(1)
-
     start_time = time.time()
 
     message_to_send = f"{ping_message} {ping_attempt}"
