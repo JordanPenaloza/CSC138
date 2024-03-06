@@ -10,8 +10,8 @@ serverSocket.bind(('',12000))
 while True:
     rand = random.randint(0,10)
     message, address = serverSocket.recvfrom(1024)
-    message = message.upper()
+    message = message.decode().upper()
     if rand < 4:
         continue
     else:
-        serverSocket.sendto(message, address)
+        serverSocket.sendto(message.encode(), address)
