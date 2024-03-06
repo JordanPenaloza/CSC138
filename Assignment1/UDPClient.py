@@ -15,12 +15,11 @@ def calculateRTT(end_time, start_time):
 for ping in range(num_pings):
 
     start_time = time.time()
-
     message_to_send = f"{ping_message} {ping_attempt}"
-    try:
-        client_socket.sendto(message_to_send.encode(), server_address)
-        print("Ping sent")
+    client_socket.sendto(message_to_send.encode(), server_address)
+    print("Ping sent")
 
+    try:
         response, server_address = client_socket.recvfrom(1024)
         print(f"Received from {server_address}: {response.decode().upper()}")
 
