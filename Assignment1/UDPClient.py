@@ -33,7 +33,7 @@ def main():
 
         except timeout:
             print("Request timed out")
-        ping_attempt += 1
+        
     client_socket.close()
 
 if __name__ == "__main__":
