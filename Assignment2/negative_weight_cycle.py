@@ -1,4 +1,4 @@
-from graphs import graph1, graph2, graph3
+from graphs import graph2
 
 def bellman_ford(graph, source, num_nodes):
     distances = [float("inf")] * (num_nodes + 1)
@@ -14,29 +14,14 @@ def bellman_ford(graph, source, num_nodes):
     return distances[1:]
 
 def has_negative_cycle(distances):
-    for distance in distances:
-        if distance < 0:
-            return True
+    if sum(distances) < 0:
+        return True
     return False
 
-def choose_graph():
-    choice = input("Which graph would you like to run (1, 2 or 3): ")
-    if choice == "1":
-        graph = graph1
-    elif choice == "2":
-        graph = graph2
-    elif choice == "3":
-        graph = graph3
-    else:
-        print("Bad choice try again ")
-        choose_graph()
-    return graph
-
 def main():
-    graph = choose_graph()
-    num_nodes = max(max(node1, node2) for node1, node2, _ in graph)
+    num_nodes = max(max(node1, node2) for node1, node2, _ in graph2)
     for source in range(1, num_nodes + 1):
-        distances = bellman_ford(graph, source, num_nodes)
+        distances = bellman_ford(graph2, source, num_nodes)
         if has_negative_cycle(distances):
                 print(f"Negative weight cycle detected")
                 break
