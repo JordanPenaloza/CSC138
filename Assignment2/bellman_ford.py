@@ -15,9 +15,16 @@ def bellman_ford(graph, source, num_nodes):
 
 def has_negative_cycle(graph):
     sum = 0
+    sum2 = 0
     for _, _, cost in graph:
          sum = sum + cost
-    if sum < 0:
+    total_sum = sum
+
+    for _, _, cost in graph:
+         sum2 = sum2 + cost
+    total_sum = total_sum + sum2
+
+    if total_sum <= sum:
          return True
     return False
 
