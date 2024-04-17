@@ -13,10 +13,12 @@ def bellman_ford(graph, source, num_nodes):
                 
     return distances[1:]
 
-def has_negative_cycle(distances):
-    for distance in distances:
-        if distance < 0:
-            return True
+def has_negative_cycle(graph):
+    sum = 0
+    for _, _, cost in graph:
+         sum = sum + cost
+    if sum < 0:
+         return True
     return False
 
 def choose_graph():
@@ -35,12 +37,12 @@ def choose_graph():
 def main():
     graph = choose_graph()
     num_nodes = max(max(node1, node2) for node1, node2, _ in graph)
-    for source in range(1, num_nodes + 1):
-        distances = bellman_ford(graph, source, num_nodes)
-        if has_negative_cycle(distances):
+    if has_negative_cycle(graph):
                 print(f"Negative weight cycle detected")
-                break
-        print(f"Shortest distance from Node {source}: {distances}")
+    else:
+        for source in range(1, num_nodes + 1):
+            distances = bellman_ford(graph, source, num_nodes)
+            print(f"Shortest distance from Node {source}: {distances}")
 
 if __name__ == '__main__':
     main()
