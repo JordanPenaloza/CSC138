@@ -31,15 +31,14 @@ def has_negative_cycle(graph):
 def choose_graph():
     choice = input("Which graph would you like to run (1, 2 or 3): ")
     if choice == "1":
-        graph = graph1
+        return graph1
     elif choice == "2":
-        graph = graph2
+        return graph2
     elif choice == "3":
-        graph = graph3
+        return graph3
     else:
         print("Bad choice try again ")
-        choose_graph()
-    return graph
+        return choose_graph()
 
 def main():
     graph = choose_graph()
